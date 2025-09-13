@@ -1,5 +1,9 @@
+  
 {
-  "appName": "App Name",
+  "uploadFingerprintImage": "Upload the fingerprint image",
+  "browse": "Browse",
+  "selectFromGallery": "Select from Gallery",
+  "appName": "BioVerify",
   "cancel": "Cancel",
   "changeLanguage": "Change language",
   "crop": "Crop",
@@ -49,5 +53,38 @@
   "validatorUrl": "The field is not a valid URL address",
   "validatorUseArabicOrKurdishLetters": "Please use Arabic or Kurdish letters",
   "validatorUseEnglishLetters": "Please use English letters",
-  "welcomeAgain": "Welcome again"
+  "welcomeAgain": "Welcome again",
+
+
+
+
+
+  "or": "OR",
+  "connectToWirelessScanner": "Connect to wireless scanner",
+
+  "ifi":"IFI",
+  "theInternationalFingerprintRecognization": "The International Fingerprint Recognization",
+  "connect": "Connect",
+  "upload": "Upload",
+  "fingerprintWasUploadedSuccessfully": "Fingerprint was uploaded successfully",
+  "selectAnImageOfAFingerprint": "Please select an Image of a fingerprint",
+
+
+
+"uploadFingerprint": "Upload Fingerprint",
+"matchFingerprint": "Match Fingerprint",
+
+"role": "Role",
+"gym": "Gym",
+"bank": "Bank",
+"verificationSuccessful": "Verification Successful",
+"verificationFailed": "Verification Failed",
+"matchedId": "Matched ID",
+"confidenceScore": "Confidence Score",
+"verificationTime": "Verification Time",
+"complete": "Complete",
+"notAvailable": "Not available",
+"recognitionFailed": "Recognition Failed",
+"unrecognizedPersonal": "Unrecognized Personal",
+"authorizationMessage": "Only authorized personals are allowed to submit fingerprints ensure you're the owner of the device"
 }

@@ -32,7 +32,7 @@ class CheckAgain extends HookWidget {
           ),
         ),
         Text(
-          'Recognization Faild',
+          context.l10n.recognitionFailed,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20,
@@ -40,14 +40,14 @@ class CheckAgain extends HookWidget {
           ),
         ),
         Text(
-          'Unrecognized Personal\n Only authorized personals are allowed to submit fingerprints ensure you\'re the owner of the device',
+          '${context.l10n.unrecognizedPersonal}\n${context.l10n.authorizationMessage}',
           textAlign: TextAlign.center,
           style: TextStyle(),
         ),
         const Gap(Insets.medium),
         FilledLoadingButton(
             isLoading: isLoading.value,
-            child: Text('Retry'),
+            child: Text(context.l10n.retry),
             onPressed: () async {
               isLoading.value = true;
               onChange(await BioAuthenticator.authenticate());

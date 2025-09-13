@@ -66,7 +66,7 @@ class _AppState extends ConsumerState<App> {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       // Theme
-      themeMode: ThemeMode.light,
+      themeMode: settings.themeMode,
       darkTheme: theme.buildDarkTheme(),
       theme: theme.buildLightTheme(),
       builder: (context, child) => Stack(

@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:app/data/models/authentication_model.dart';
+import 'package:app/data/models/enum.dart';
 import 'package:app/data/models/fingerprint_model.dart';
+import 'package:app/data/models/fingerprint_response_model.dart';
 import 'package:app/data/services/clients/callback.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -20,6 +22,10 @@ abstract class AuthClient {
   FutureApiResponse<AuthenticationModel> login(@Body() dynamic data);
 
   @MultiPart()
-  @POST('/')
-  FutureApiResponse<FingerPrintModel> validate(@Part() File file);
+  @POST('/fingerprints/check')
+  FutureApiResponse<FingerPrintModel> validate(@Part() File file, @Query('field_type') Role? role);
+
+  @MultiPart()
+  @POST('/fingerprints/save')
+  FutureApiResponse<FingerprintResponse> upload(@Part() File file);
 }

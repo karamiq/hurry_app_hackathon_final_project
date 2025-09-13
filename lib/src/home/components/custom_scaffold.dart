@@ -13,7 +13,8 @@ class CustomScaffold extends StatelessWidget {
       this.resizeToAvoidBottomInset = true,
       this.floatingActionButton,
       this.floatingActionButtonLocation,
-      this.appBar});
+      this.appBar,
+      this.bottomNavigationBar});
   final EdgeInsetsGeometry? padding;
   final Widget? body;
   final MainAxisAlignment mainAxisAlignment;
@@ -23,6 +24,7 @@ class CustomScaffold extends StatelessWidget {
   final FloatingActionButtonLocation? floatingActionButtonLocation;
   final bool resizeToAvoidBottomInset;
   final AppBar? appBar;
+  final Widget? bottomNavigationBar;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class CustomScaffold extends StatelessWidget {
       floatingActionButton: floatingActionButton,
       floatingActionButtonLocation: floatingActionButtonLocation,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+      bottomNavigationBar: bottomNavigationBar,
       body: SafeArea(
         top: safeArea,
         bottom: safeArea,
@@ -67,36 +70,33 @@ class CustomScaffold extends StatelessWidget {
                 child: CirculerContainer(
                   color: primary,
                 )),
+
+            Positioned(
+                bottom: h * .2,
+                right: h * .2,
+                child: CirculerContainer(
+                  size: h * .4,
+                  color: primary,
+                )),
+            Positioned(
+                top: h * -.1,
+                left: h * 0,
+                child: CirculerContainer(
+                  size: h * .4,
+                  color: primary,
+                )),
+
             Positioned(
                 bottom: 80,
                 child: CirculerContainer(
                   color: primary,
                 )),
             Positioned(
-                height: h * .8,
                 right: -80,
                 child: CirculerContainer(
                   color: primary,
                 )),
-            Positioned(
-              left: 300,
-              top: MediaQuery.of(context).size.height / 2 - 100,
-              child: Stack(
-                children: [
-                  // AnimatedRotatingPoint(
-                  //   radius: 150,
-                  // ),
-                  // AnimatedRotatingPoint(
-                  //   radius: 150,
-                  //   startAngle: 90,
-                  // ),
-                  // AnimatedRotatingPoint(
-                  //   startAngle: 180,
-                  //   radius: 150,
-                  // ),
-                ],
-              ),
-            ),
+
             // Positioned.fill(
             //   child: BackdropFilter(
             //     filter: ImageFilter.blur(sigmaX: 80.0, sigmaY: 80.0),

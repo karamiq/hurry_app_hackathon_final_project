@@ -1,5 +1,9 @@
+
 {
-  "appName": "اسم التطبيق",
+    "uploadFingerprintImage": "ارفع صورة البصمة",
+  "browse": "تصفح",
+  "selectFromGallery": "اختر من المعرض",
+  "appName": "BioVerify",
   "cancel": "إلغاء",
   "changeLanguage": "تغيير اللغة",
   "crop": "قص الصورة",
@@ -39,5 +43,35 @@
   "validatorUrl": "الرابط غير صحيح",
   "validatorUseArabicOrKurdishLetters": "رجاءً أدخل حروف عربية أو كردية",
   "validatorUseEnglishLetters": "رجاءً أدخل حروف إنجليزية",
-  "welcomeAgain": "مرحباً بك مرة أخرى"
+  "welcomeAgain": "مرحباً بك مرة أخرى",
+
+
+  "or": "أو",
+  "connectToWirelessScanner": "اتصل بجهاز الماسح الضوئي اللاسلكي",
+  "ifi": "ادب",
+  "theInternationalFingerprintRecognization": "التعرف الدولي على البصمات",
+  "connect": "اتصل",
+
+
+  "upload": "رفع",
+"fingerprintWasUploadedSuccessfully": "تم رفع بصمة الإصبع بنجاح",
+"selectAnImageOfAFingerprint": "يرجى اختيار صورة لبصمة الإصبع",
+
+"uploadFingerprint": "رفع بصمة الإصبع",
+"matchFingerprint": "مطابقة بصمة الإصبع",
+
+"role": "الدور",
+"gym": "الألعاب الرياضية",
+"bank": "بنك",
+"verificationSuccessful": "تم التحقق بنجاح",
+"verificationFailed": "فشل التحقق",
+"matchedId": "المعرف المطابق",
+"confidenceScore": "درجة الثقة",
+"verificationTime": "وقت التحقق",
+"complete": "إكمال",
+"notAvailable": "غير متوفر",
+"recognitionFailed": "فشل التعرف",
+"unrecognizedPersonal": "شخص غير معترف به",
+"authorizationMessage": "يُسمح للأشخاص المخولين فقط بتقديم بصمات الأصابع تأكد من أنك مالك الجهاز"
+
 }

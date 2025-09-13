@@ -24,12 +24,20 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return DropdownButtonFormField(
       value: value,
       items: items,
       decoration: InputDecoration(
-        fillColor: fillColor,
+        fillColor: colorScheme.surface.withOpacity(.4),
         hintText: hintText,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(BorderSize.extraSmall),
+          borderSide: BorderSide(
+            width: .5,
+            color: context.colorScheme.primary,
+          ),
+        ),
         hintStyle: context.textTheme.bodyLarge?.copyWith(
           color: context.colorScheme.outline,
           fontSize: 16,
@@ -41,7 +49,8 @@ class CustomDropdownButtonFormField<T> extends StatelessWidget {
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       onChanged: onChanged,
-      borderRadius: BorderRadius.circular(BorderSize.extraLarge),
+      dropdownColor: colorScheme.surface,
+      borderRadius: BorderRadius.circular(BorderSize.extraSmall),
     );
   }
 }

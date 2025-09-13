@@ -98,10 +98,28 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
+  /// No description provided for @uploadFingerprintImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload the fingerprint image'**
+  String get uploadFingerprintImage;
+
+  /// No description provided for @browse.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse'**
+  String get browse;
+
+  /// No description provided for @selectFromGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Select from Gallery'**
+  String get selectFromGallery;
+
   /// No description provided for @appName.
   ///
   /// In en, this message translates to:
-  /// **'App Name'**
+  /// **'BioVerify'**
   String get appName;
 
   /// No description provided for @cancel.
@@ -343,6 +361,144 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Welcome again'**
   String get welcomeAgain;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'OR'**
+  String get or;
+
+  /// No description provided for @connectToWirelessScanner.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect to wireless scanner'**
+  String get connectToWirelessScanner;
+
+  /// No description provided for @ifi.
+  ///
+  /// In en, this message translates to:
+  /// **'IFI'**
+  String get ifi;
+
+  /// No description provided for @theInternationalFingerprintRecognization.
+  ///
+  /// In en, this message translates to:
+  /// **'The International Fingerprint Recognization'**
+  String get theInternationalFingerprintRecognization;
+
+  /// No description provided for @connect.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect'**
+  String get connect;
+
+  /// No description provided for @upload.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload'**
+  String get upload;
+
+  /// No description provided for @fingerprintWasUploadedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Fingerprint was uploaded successfully'**
+  String get fingerprintWasUploadedSuccessfully;
+
+  /// No description provided for @selectAnImageOfAFingerprint.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select an Image of a fingerprint'**
+  String get selectAnImageOfAFingerprint;
+
+  /// No description provided for @uploadFingerprint.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload Fingerprint'**
+  String get uploadFingerprint;
+
+  /// No description provided for @matchFingerprint.
+  ///
+  /// In en, this message translates to:
+  /// **'Match Fingerprint'**
+  String get matchFingerprint;
+
+  /// No description provided for @role.
+  ///
+  /// In en, this message translates to:
+  /// **'Role'**
+  String get role;
+
+  /// No description provided for @gym.
+  ///
+  /// In en, this message translates to:
+  /// **'Gym'**
+  String get gym;
+
+  /// No description provided for @bank.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank'**
+  String get bank;
+
+  /// No description provided for @verificationSuccessful.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Successful'**
+  String get verificationSuccessful;
+
+  /// No description provided for @verificationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Failed'**
+  String get verificationFailed;
+
+  /// No description provided for @matchedId.
+  ///
+  /// In en, this message translates to:
+  /// **'Matched ID'**
+  String get matchedId;
+
+  /// No description provided for @confidenceScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Confidence Score'**
+  String get confidenceScore;
+
+  /// No description provided for @verificationTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Time'**
+  String get verificationTime;
+
+  /// No description provided for @complete.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete'**
+  String get complete;
+
+  /// No description provided for @notAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Not available'**
+  String get notAvailable;
+
+  /// No description provided for @recognitionFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Recognition Failed'**
+  String get recognitionFailed;
+
+  /// No description provided for @unrecognizedPersonal.
+  ///
+  /// In en, this message translates to:
+  /// **'Unrecognized Personal'**
+  String get unrecognizedPersonal;
+
+  /// No description provided for @authorizationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Only authorized personals are allowed to submit fingerprints ensure you\'re the owner of the device'**
+  String get authorizationMessage;
 }
 
 class _AppLocalizationsDelegate

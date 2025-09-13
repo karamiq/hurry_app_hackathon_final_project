@@ -22,8 +22,7 @@ class DefaultResponse<T> {
     required this.statusCode,
   });
 
-  factory DefaultResponse.fromJson(
-          Map<String, dynamic> json, FromJsonT<T> fromJsonT) =>
+  factory DefaultResponse.fromJson(Map<String, dynamic> json, FromJsonT<T> fromJsonT) =>
       _$DefaultResponseFromJson<T>(json, fromJsonT);
 
   DefaultResponse<T> copyWith({
@@ -38,13 +37,4 @@ class DefaultResponse<T> {
         result: result ?? this.result,
         statusCode: statusCode ?? this.statusCode);
   }
-}
-
-@JsonEnum(alwaysCreate: true)
-enum Role {
-  @JsonValue("Supervisor")
-  supervisor,
-  unknown;
-
-  String toJson() => _$RoleEnumMap[this]!;
 }

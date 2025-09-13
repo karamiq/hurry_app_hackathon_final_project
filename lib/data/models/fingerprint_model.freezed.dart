@@ -14,12 +14,10 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$FingerPrintModel {
-  String get filename;
-  FileInfo get file;
-  int get size;
-  Headers get headers;
-  @JsonKey(name: '_max_mem_size')
-  int get maxMemSize;
+  bool get verified;
+  String? get matched_fingerprint_id;
+  double get confidence_score;
+  String get message;
 
   /// Create a copy of FingerPrintModel
   /// with the given fields replaced by the non-null parameter values.
@@ -37,23 +35,23 @@ mixin _$FingerPrintModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is FingerPrintModel &&
-            (identical(other.filename, filename) ||
-                other.filename == filename) &&
-            (identical(other.file, file) || other.file == file) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.headers, headers) || other.headers == headers) &&
-            (identical(other.maxMemSize, maxMemSize) ||
-                other.maxMemSize == maxMemSize));
+            (identical(other.verified, verified) ||
+                other.verified == verified) &&
+            (identical(other.matched_fingerprint_id, matched_fingerprint_id) ||
+                other.matched_fingerprint_id == matched_fingerprint_id) &&
+            (identical(other.confidence_score, confidence_score) ||
+                other.confidence_score == confidence_score) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, filename, file, size, headers, maxMemSize);
+  int get hashCode => Object.hash(
+      runtimeType, verified, matched_fingerprint_id, confidence_score, message);
 
   @override
   String toString() {
-    return 'FingerPrintModel(filename: $filename, file: $file, size: $size, headers: $headers, maxMemSize: $maxMemSize)';
+    return 'FingerPrintModel(verified: $verified, matched_fingerprint_id: $matched_fingerprint_id, confidence_score: $confidence_score, message: $message)';
   }
 }
 
@@ -64,14 +62,10 @@ abstract mixin class $FingerPrintModelCopyWith<$Res> {
       _$FingerPrintModelCopyWithImpl;
   @useResult
   $Res call(
-      {String filename,
-      FileInfo file,
-      int size,
-      Headers headers,
-      @JsonKey(name: '_max_mem_size') int maxMemSize});
-
-  $FileInfoCopyWith<$Res> get file;
-  $HeadersCopyWith<$Res> get headers;
+      {bool verified,
+      String? matched_fingerprint_id,
+      double confidence_score,
+      String message});
 }
 
 /// @nodoc
@@ -87,54 +81,29 @@ class _$FingerPrintModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? filename = null,
-    Object? file = null,
-    Object? size = null,
-    Object? headers = null,
-    Object? maxMemSize = null,
+    Object? verified = null,
+    Object? matched_fingerprint_id = freezed,
+    Object? confidence_score = null,
+    Object? message = null,
   }) {
     return _then(_self.copyWith(
-      filename: null == filename
-          ? _self.filename
-          : filename // ignore: cast_nullable_to_non_nullable
+      verified: null == verified
+          ? _self.verified
+          : verified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      matched_fingerprint_id: freezed == matched_fingerprint_id
+          ? _self.matched_fingerprint_id
+          : matched_fingerprint_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      confidence_score: null == confidence_score
+          ? _self.confidence_score
+          : confidence_score // ignore: cast_nullable_to_non_nullable
+              as double,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
-      file: null == file
-          ? _self.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as FileInfo,
-      size: null == size
-          ? _self.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      headers: null == headers
-          ? _self.headers
-          : headers // ignore: cast_nullable_to_non_nullable
-              as Headers,
-      maxMemSize: null == maxMemSize
-          ? _self.maxMemSize
-          : maxMemSize // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
-  }
-
-  /// Create a copy of FingerPrintModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $FileInfoCopyWith<$Res> get file {
-    return $FileInfoCopyWith<$Res>(_self.file, (value) {
-      return _then(_self.copyWith(file: value));
-    });
-  }
-
-  /// Create a copy of FingerPrintModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $HeadersCopyWith<$Res> get headers {
-    return $HeadersCopyWith<$Res>(_self.headers, (value) {
-      return _then(_self.copyWith(headers: value));
-    });
   }
 }
 
@@ -231,16 +200,16 @@ extension FingerPrintModelPatterns on FingerPrintModel {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String filename, FileInfo file, int size, Headers headers,
-            @JsonKey(name: '_max_mem_size') int maxMemSize)?
+    TResult Function(bool verified, String? matched_fingerprint_id,
+            double confidence_score, String message)?
         $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _FingerPrintModel() when $default != null:
-        return $default(_that.filename, _that.file, _that.size, _that.headers,
-            _that.maxMemSize);
+        return $default(_that.verified, _that.matched_fingerprint_id,
+            _that.confidence_score, _that.message);
       case _:
         return orElse();
     }
@@ -261,15 +230,15 @@ extension FingerPrintModelPatterns on FingerPrintModel {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String filename, FileInfo file, int size, Headers headers,
-            @JsonKey(name: '_max_mem_size') int maxMemSize)
+    TResult Function(bool verified, String? matched_fingerprint_id,
+            double confidence_score, String message)
         $default,
   ) {
     final _that = this;
     switch (_that) {
       case _FingerPrintModel():
-        return $default(_that.filename, _that.file, _that.size, _that.headers,
-            _that.maxMemSize);
+        return $default(_that.verified, _that.matched_fingerprint_id,
+            _that.confidence_score, _that.message);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -289,15 +258,15 @@ extension FingerPrintModelPatterns on FingerPrintModel {
 
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String filename, FileInfo file, int size, Headers headers,
-            @JsonKey(name: '_max_mem_size') int maxMemSize)?
+    TResult? Function(bool verified, String? matched_fingerprint_id,
+            double confidence_score, String message)?
         $default,
   ) {
     final _that = this;
     switch (_that) {
       case _FingerPrintModel() when $default != null:
-        return $default(_that.filename, _that.file, _that.size, _that.headers,
-            _that.maxMemSize);
+        return $default(_that.verified, _that.matched_fingerprint_id,
+            _that.confidence_score, _that.message);
       case _:
         return null;
     }
@@ -308,25 +277,21 @@ extension FingerPrintModelPatterns on FingerPrintModel {
 @JsonSerializable()
 class _FingerPrintModel implements FingerPrintModel {
   const _FingerPrintModel(
-      {required this.filename,
-      required this.file,
-      required this.size,
-      required this.headers,
-      @JsonKey(name: '_max_mem_size') required this.maxMemSize});
+      {required this.verified,
+      required this.matched_fingerprint_id,
+      required this.confidence_score,
+      required this.message});
   factory _FingerPrintModel.fromJson(Map<String, dynamic> json) =>
       _$FingerPrintModelFromJson(json);
 
   @override
-  final String filename;
+  final bool verified;
   @override
-  final FileInfo file;
+  final String? matched_fingerprint_id;
   @override
-  final int size;
+  final double confidence_score;
   @override
-  final Headers headers;
-  @override
-  @JsonKey(name: '_max_mem_size')
-  final int maxMemSize;
+  final String message;
 
   /// Create a copy of FingerPrintModel
   /// with the given fields replaced by the non-null parameter values.
@@ -348,23 +313,23 @@ class _FingerPrintModel implements FingerPrintModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _FingerPrintModel &&
-            (identical(other.filename, filename) ||
-                other.filename == filename) &&
-            (identical(other.file, file) || other.file == file) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.headers, headers) || other.headers == headers) &&
-            (identical(other.maxMemSize, maxMemSize) ||
-                other.maxMemSize == maxMemSize));
+            (identical(other.verified, verified) ||
+                other.verified == verified) &&
+            (identical(other.matched_fingerprint_id, matched_fingerprint_id) ||
+                other.matched_fingerprint_id == matched_fingerprint_id) &&
+            (identical(other.confidence_score, confidence_score) ||
+                other.confidence_score == confidence_score) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, filename, file, size, headers, maxMemSize);
+  int get hashCode => Object.hash(
+      runtimeType, verified, matched_fingerprint_id, confidence_score, message);
 
   @override
   String toString() {
-    return 'FingerPrintModel(filename: $filename, file: $file, size: $size, headers: $headers, maxMemSize: $maxMemSize)';
+    return 'FingerPrintModel(verified: $verified, matched_fingerprint_id: $matched_fingerprint_id, confidence_score: $confidence_score, message: $message)';
   }
 }
 
@@ -377,16 +342,10 @@ abstract mixin class _$FingerPrintModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String filename,
-      FileInfo file,
-      int size,
-      Headers headers,
-      @JsonKey(name: '_max_mem_size') int maxMemSize});
-
-  @override
-  $FileInfoCopyWith<$Res> get file;
-  @override
-  $HeadersCopyWith<$Res> get headers;
+      {bool verified,
+      String? matched_fingerprint_id,
+      double confidence_score,
+      String message});
 }
 
 /// @nodoc
@@ -402,747 +361,27 @@ class __$FingerPrintModelCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? filename = null,
-    Object? file = null,
-    Object? size = null,
-    Object? headers = null,
-    Object? maxMemSize = null,
+    Object? verified = null,
+    Object? matched_fingerprint_id = freezed,
+    Object? confidence_score = null,
+    Object? message = null,
   }) {
     return _then(_FingerPrintModel(
-      filename: null == filename
-          ? _self.filename
-          : filename // ignore: cast_nullable_to_non_nullable
-              as String,
-      file: null == file
-          ? _self.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as FileInfo,
-      size: null == size
-          ? _self.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      headers: null == headers
-          ? _self.headers
-          : headers // ignore: cast_nullable_to_non_nullable
-              as Headers,
-      maxMemSize: null == maxMemSize
-          ? _self.maxMemSize
-          : maxMemSize // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-
-  /// Create a copy of FingerPrintModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $FileInfoCopyWith<$Res> get file {
-    return $FileInfoCopyWith<$Res>(_self.file, (value) {
-      return _then(_self.copyWith(file: value));
-    });
-  }
-
-  /// Create a copy of FingerPrintModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $HeadersCopyWith<$Res> get headers {
-    return $HeadersCopyWith<$Res>(_self.headers, (value) {
-      return _then(_self.copyWith(headers: value));
-    });
-  }
-}
-
-/// @nodoc
-mixin _$FileInfo {
-  @JsonKey(name: '_file')
-  Map<String, dynamic> get file;
-  @JsonKey(name: '_max_size')
-  int get maxSize;
-  @JsonKey(name: '_rolled')
-  bool get rolled;
-
-  /// Create a copy of FileInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $FileInfoCopyWith<FileInfo> get copyWith =>
-      _$FileInfoCopyWithImpl<FileInfo>(this as FileInfo, _$identity);
-
-  /// Serializes this FileInfo to a JSON map.
-  Map<String, dynamic> toJson();
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is FileInfo &&
-            const DeepCollectionEquality().equals(other.file, file) &&
-            (identical(other.maxSize, maxSize) || other.maxSize == maxSize) &&
-            (identical(other.rolled, rolled) || other.rolled == rolled));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(file), maxSize, rolled);
-
-  @override
-  String toString() {
-    return 'FileInfo(file: $file, maxSize: $maxSize, rolled: $rolled)';
-  }
-}
-
-/// @nodoc
-abstract mixin class $FileInfoCopyWith<$Res> {
-  factory $FileInfoCopyWith(FileInfo value, $Res Function(FileInfo) _then) =
-      _$FileInfoCopyWithImpl;
-  @useResult
-  $Res call(
-      {@JsonKey(name: '_file') Map<String, dynamic> file,
-      @JsonKey(name: '_max_size') int maxSize,
-      @JsonKey(name: '_rolled') bool rolled});
-}
-
-/// @nodoc
-class _$FileInfoCopyWithImpl<$Res> implements $FileInfoCopyWith<$Res> {
-  _$FileInfoCopyWithImpl(this._self, this._then);
-
-  final FileInfo _self;
-  final $Res Function(FileInfo) _then;
-
-  /// Create a copy of FileInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? file = null,
-    Object? maxSize = null,
-    Object? rolled = null,
-  }) {
-    return _then(_self.copyWith(
-      file: null == file
-          ? _self.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      maxSize: null == maxSize
-          ? _self.maxSize
-          : maxSize // ignore: cast_nullable_to_non_nullable
-              as int,
-      rolled: null == rolled
-          ? _self.rolled
-          : rolled // ignore: cast_nullable_to_non_nullable
+      verified: null == verified
+          ? _self.verified
+          : verified // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
-  }
-}
-
-/// Adds pattern-matching-related methods to [FileInfo].
-extension FileInfoPatterns on FileInfo {
-  /// A variant of `map` that fallback to returning `orElse`.
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case final Subclass value:
-  ///     return ...;
-  ///   case _:
-  ///     return orElse();
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_FileInfo value)? $default, {
-    required TResult orElse(),
-  }) {
-    final _that = this;
-    switch (_that) {
-      case _FileInfo() when $default != null:
-        return $default(_that);
-      case _:
-        return orElse();
-    }
-  }
-
-  /// A `switch`-like method, using callbacks.
-  ///
-  /// Callbacks receives the raw object, upcasted.
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case final Subclass value:
-  ///     return ...;
-  ///   case final Subclass2 value:
-  ///     return ...;
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_FileInfo value) $default,
-  ) {
-    final _that = this;
-    switch (_that) {
-      case _FileInfo():
-        return $default(_that);
-      case _:
-        throw StateError('Unexpected subclass');
-    }
-  }
-
-  /// A variant of `map` that fallback to returning `null`.
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case final Subclass value:
-  ///     return ...;
-  ///   case _:
-  ///     return null;
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_FileInfo value)? $default,
-  ) {
-    final _that = this;
-    switch (_that) {
-      case _FileInfo() when $default != null:
-        return $default(_that);
-      case _:
-        return null;
-    }
-  }
-
-  /// A variant of `when` that fallback to an `orElse` callback.
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case Subclass(:final field):
-  ///     return ...;
-  ///   case _:
-  ///     return orElse();
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            @JsonKey(name: '_file') Map<String, dynamic> file,
-            @JsonKey(name: '_max_size') int maxSize,
-            @JsonKey(name: '_rolled') bool rolled)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    final _that = this;
-    switch (_that) {
-      case _FileInfo() when $default != null:
-        return $default(_that.file, _that.maxSize, _that.rolled);
-      case _:
-        return orElse();
-    }
-  }
-
-  /// A `switch`-like method, using callbacks.
-  ///
-  /// As opposed to `map`, this offers destructuring.
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case Subclass(:final field):
-  ///     return ...;
-  ///   case Subclass2(:final field2):
-  ///     return ...;
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            @JsonKey(name: '_file') Map<String, dynamic> file,
-            @JsonKey(name: '_max_size') int maxSize,
-            @JsonKey(name: '_rolled') bool rolled)
-        $default,
-  ) {
-    final _that = this;
-    switch (_that) {
-      case _FileInfo():
-        return $default(_that.file, _that.maxSize, _that.rolled);
-      case _:
-        throw StateError('Unexpected subclass');
-    }
-  }
-
-  /// A variant of `when` that fallback to returning `null`
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case Subclass(:final field):
-  ///     return ...;
-  ///   case _:
-  ///     return null;
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            @JsonKey(name: '_file') Map<String, dynamic> file,
-            @JsonKey(name: '_max_size') int maxSize,
-            @JsonKey(name: '_rolled') bool rolled)?
-        $default,
-  ) {
-    final _that = this;
-    switch (_that) {
-      case _FileInfo() when $default != null:
-        return $default(_that.file, _that.maxSize, _that.rolled);
-      case _:
-        return null;
-    }
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _FileInfo implements FileInfo {
-  const _FileInfo(
-      {@JsonKey(name: '_file') required final Map<String, dynamic> file,
-      @JsonKey(name: '_max_size') required this.maxSize,
-      @JsonKey(name: '_rolled') required this.rolled})
-      : _file = file;
-  factory _FileInfo.fromJson(Map<String, dynamic> json) =>
-      _$FileInfoFromJson(json);
-
-  final Map<String, dynamic> _file;
-  @override
-  @JsonKey(name: '_file')
-  Map<String, dynamic> get file {
-    if (_file is EqualUnmodifiableMapView) return _file;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_file);
-  }
-
-  @override
-  @JsonKey(name: '_max_size')
-  final int maxSize;
-  @override
-  @JsonKey(name: '_rolled')
-  final bool rolled;
-
-  /// Create a copy of FileInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$FileInfoCopyWith<_FileInfo> get copyWith =>
-      __$FileInfoCopyWithImpl<_FileInfo>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$FileInfoToJson(
-      this,
-    );
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _FileInfo &&
-            const DeepCollectionEquality().equals(other._file, _file) &&
-            (identical(other.maxSize, maxSize) || other.maxSize == maxSize) &&
-            (identical(other.rolled, rolled) || other.rolled == rolled));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_file), maxSize, rolled);
-
-  @override
-  String toString() {
-    return 'FileInfo(file: $file, maxSize: $maxSize, rolled: $rolled)';
-  }
-}
-
-/// @nodoc
-abstract mixin class _$FileInfoCopyWith<$Res>
-    implements $FileInfoCopyWith<$Res> {
-  factory _$FileInfoCopyWith(_FileInfo value, $Res Function(_FileInfo) _then) =
-      __$FileInfoCopyWithImpl;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: '_file') Map<String, dynamic> file,
-      @JsonKey(name: '_max_size') int maxSize,
-      @JsonKey(name: '_rolled') bool rolled});
-}
-
-/// @nodoc
-class __$FileInfoCopyWithImpl<$Res> implements _$FileInfoCopyWith<$Res> {
-  __$FileInfoCopyWithImpl(this._self, this._then);
-
-  final _FileInfo _self;
-  final $Res Function(_FileInfo) _then;
-
-  /// Create a copy of FileInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? file = null,
-    Object? maxSize = null,
-    Object? rolled = null,
-  }) {
-    return _then(_FileInfo(
-      file: null == file
-          ? _self._file
-          : file // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      maxSize: null == maxSize
-          ? _self.maxSize
-          : maxSize // ignore: cast_nullable_to_non_nullable
-              as int,
-      rolled: null == rolled
-          ? _self.rolled
-          : rolled // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-mixin _$Headers {
-  @JsonKey(name: 'content-disposition')
-  String get contentDisposition;
-  @JsonKey(name: 'content-type')
-  String get contentType;
-
-  /// Create a copy of Headers
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $HeadersCopyWith<Headers> get copyWith =>
-      _$HeadersCopyWithImpl<Headers>(this as Headers, _$identity);
-
-  /// Serializes this Headers to a JSON map.
-  Map<String, dynamic> toJson();
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is Headers &&
-            (identical(other.contentDisposition, contentDisposition) ||
-                other.contentDisposition == contentDisposition) &&
-            (identical(other.contentType, contentType) ||
-                other.contentType == contentType));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, contentDisposition, contentType);
-
-  @override
-  String toString() {
-    return 'Headers(contentDisposition: $contentDisposition, contentType: $contentType)';
-  }
-}
-
-/// @nodoc
-abstract mixin class $HeadersCopyWith<$Res> {
-  factory $HeadersCopyWith(Headers value, $Res Function(Headers) _then) =
-      _$HeadersCopyWithImpl;
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'content-disposition') String contentDisposition,
-      @JsonKey(name: 'content-type') String contentType});
-}
-
-/// @nodoc
-class _$HeadersCopyWithImpl<$Res> implements $HeadersCopyWith<$Res> {
-  _$HeadersCopyWithImpl(this._self, this._then);
-
-  final Headers _self;
-  final $Res Function(Headers) _then;
-
-  /// Create a copy of Headers
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? contentDisposition = null,
-    Object? contentType = null,
-  }) {
-    return _then(_self.copyWith(
-      contentDisposition: null == contentDisposition
-          ? _self.contentDisposition
-          : contentDisposition // ignore: cast_nullable_to_non_nullable
-              as String,
-      contentType: null == contentType
-          ? _self.contentType
-          : contentType // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// Adds pattern-matching-related methods to [Headers].
-extension HeadersPatterns on Headers {
-  /// A variant of `map` that fallback to returning `orElse`.
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case final Subclass value:
-  ///     return ...;
-  ///   case _:
-  ///     return orElse();
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_Headers value)? $default, {
-    required TResult orElse(),
-  }) {
-    final _that = this;
-    switch (_that) {
-      case _Headers() when $default != null:
-        return $default(_that);
-      case _:
-        return orElse();
-    }
-  }
-
-  /// A `switch`-like method, using callbacks.
-  ///
-  /// Callbacks receives the raw object, upcasted.
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case final Subclass value:
-  ///     return ...;
-  ///   case final Subclass2 value:
-  ///     return ...;
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_Headers value) $default,
-  ) {
-    final _that = this;
-    switch (_that) {
-      case _Headers():
-        return $default(_that);
-      case _:
-        throw StateError('Unexpected subclass');
-    }
-  }
-
-  /// A variant of `map` that fallback to returning `null`.
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case final Subclass value:
-  ///     return ...;
-  ///   case _:
-  ///     return null;
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_Headers value)? $default,
-  ) {
-    final _that = this;
-    switch (_that) {
-      case _Headers() when $default != null:
-        return $default(_that);
-      case _:
-        return null;
-    }
-  }
-
-  /// A variant of `when` that fallback to an `orElse` callback.
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case Subclass(:final field):
-  ///     return ...;
-  ///   case _:
-  ///     return orElse();
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            @JsonKey(name: 'content-disposition') String contentDisposition,
-            @JsonKey(name: 'content-type') String contentType)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    final _that = this;
-    switch (_that) {
-      case _Headers() when $default != null:
-        return $default(_that.contentDisposition, _that.contentType);
-      case _:
-        return orElse();
-    }
-  }
-
-  /// A `switch`-like method, using callbacks.
-  ///
-  /// As opposed to `map`, this offers destructuring.
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case Subclass(:final field):
-  ///     return ...;
-  ///   case Subclass2(:final field2):
-  ///     return ...;
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            @JsonKey(name: 'content-disposition') String contentDisposition,
-            @JsonKey(name: 'content-type') String contentType)
-        $default,
-  ) {
-    final _that = this;
-    switch (_that) {
-      case _Headers():
-        return $default(_that.contentDisposition, _that.contentType);
-      case _:
-        throw StateError('Unexpected subclass');
-    }
-  }
-
-  /// A variant of `when` that fallback to returning `null`
-  ///
-  /// It is equivalent to doing:
-  /// ```dart
-  /// switch (sealedClass) {
-  ///   case Subclass(:final field):
-  ///     return ...;
-  ///   case _:
-  ///     return null;
-  /// }
-  /// ```
-
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            @JsonKey(name: 'content-disposition') String contentDisposition,
-            @JsonKey(name: 'content-type') String contentType)?
-        $default,
-  ) {
-    final _that = this;
-    switch (_that) {
-      case _Headers() when $default != null:
-        return $default(_that.contentDisposition, _that.contentType);
-      case _:
-        return null;
-    }
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _Headers implements Headers {
-  const _Headers(
-      {@JsonKey(name: 'content-disposition') required this.contentDisposition,
-      @JsonKey(name: 'content-type') required this.contentType});
-  factory _Headers.fromJson(Map<String, dynamic> json) =>
-      _$HeadersFromJson(json);
-
-  @override
-  @JsonKey(name: 'content-disposition')
-  final String contentDisposition;
-  @override
-  @JsonKey(name: 'content-type')
-  final String contentType;
-
-  /// Create a copy of Headers
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$HeadersCopyWith<_Headers> get copyWith =>
-      __$HeadersCopyWithImpl<_Headers>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$HeadersToJson(
-      this,
-    );
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _Headers &&
-            (identical(other.contentDisposition, contentDisposition) ||
-                other.contentDisposition == contentDisposition) &&
-            (identical(other.contentType, contentType) ||
-                other.contentType == contentType));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, contentDisposition, contentType);
-
-  @override
-  String toString() {
-    return 'Headers(contentDisposition: $contentDisposition, contentType: $contentType)';
-  }
-}
-
-/// @nodoc
-abstract mixin class _$HeadersCopyWith<$Res> implements $HeadersCopyWith<$Res> {
-  factory _$HeadersCopyWith(_Headers value, $Res Function(_Headers) _then) =
-      __$HeadersCopyWithImpl;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'content-disposition') String contentDisposition,
-      @JsonKey(name: 'content-type') String contentType});
-}
-
-/// @nodoc
-class __$HeadersCopyWithImpl<$Res> implements _$HeadersCopyWith<$Res> {
-  __$HeadersCopyWithImpl(this._self, this._then);
-
-  final _Headers _self;
-  final $Res Function(_Headers) _then;
-
-  /// Create a copy of Headers
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? contentDisposition = null,
-    Object? contentType = null,
-  }) {
-    return _then(_Headers(
-      contentDisposition: null == contentDisposition
-          ? _self.contentDisposition
-          : contentDisposition // ignore: cast_nullable_to_non_nullable
-              as String,
-      contentType: null == contentType
-          ? _self.contentType
-          : contentType // ignore: cast_nullable_to_non_nullable
+      matched_fingerprint_id: freezed == matched_fingerprint_id
+          ? _self.matched_fingerprint_id
+          : matched_fingerprint_id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      confidence_score: null == confidence_score
+          ? _self.confidence_score
+          : confidence_score // ignore: cast_nullable_to_non_nullable
+              as double,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }

@@ -9,7 +9,16 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appName => 'App Name';
+  String get uploadFingerprintImage => 'Upload the fingerprint image';
+
+  @override
+  String get browse => 'Browse';
+
+  @override
+  String get selectFromGallery => 'Select from Gallery';
+
+  @override
+  String get appName => 'BioVerify';
 
   @override
   String get cancel => 'Cancel';
@@ -136,4 +145,77 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcomeAgain => 'Welcome again';
+
+  @override
+  String get or => 'OR';
+
+  @override
+  String get connectToWirelessScanner => 'Connect to wireless scanner';
+
+  @override
+  String get ifi => 'IFI';
+
+  @override
+  String get theInternationalFingerprintRecognization =>
+      'The International Fingerprint Recognization';
+
+  @override
+  String get connect => 'Connect';
+
+  @override
+  String get upload => 'Upload';
+
+  @override
+  String get fingerprintWasUploadedSuccessfully =>
+      'Fingerprint was uploaded successfully';
+
+  @override
+  String get selectAnImageOfAFingerprint =>
+      'Please select an Image of a fingerprint';
+
+  @override
+  String get uploadFingerprint => 'Upload Fingerprint';
+
+  @override
+  String get matchFingerprint => 'Match Fingerprint';
+
+  @override
+  String get role => 'Role';
+
+  @override
+  String get gym => 'Gym';
+
+  @override
+  String get bank => 'Bank';
+
+  @override
+  String get verificationSuccessful => 'Verification Successful';
+
+  @override
+  String get verificationFailed => 'Verification Failed';
+
+  @override
+  String get matchedId => 'Matched ID';
+
+  @override
+  String get confidenceScore => 'Confidence Score';
+
+  @override
+  String get verificationTime => 'Verification Time';
+
+  @override
+  String get complete => 'Complete';
+
+  @override
+  String get notAvailable => 'Not available';
+
+  @override
+  String get recognitionFailed => 'Recognition Failed';
+
+  @override
+  String get unrecognizedPersonal => 'Unrecognized Personal';
+
+  @override
+  String get authorizationMessage =>
+      'Only authorized personals are allowed to submit fingerprints ensure you\'re the owner of the device';
 }

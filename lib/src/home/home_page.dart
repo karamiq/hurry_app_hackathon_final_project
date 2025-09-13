@@ -1,7 +1,5 @@
 import 'package:app/common_lib.dart';
 import 'package:app/src/home/components/check_again.dart';
-import 'package:app/src/home/components/custom_scaffold.dart';
-import 'package:app/src/home/components/profile_head.dart';
 import 'package:app/src/home/components/upload_fingerprints.dart';
 import 'package:app/src/home/utils/bio_authenticator.dart';
 
@@ -26,25 +24,18 @@ class _HomePageState extends ConsumerState<HomePage> {
       return null;
     }, []);
 
-    return CustomScaffold(
-      safeArea: false,
-      body: Column(
-        children: [
-          ProfileHead(),
-          Expanded(
-            child: Padding(
-              padding: Insets.mediumAll,
-              child: isAllowed.value
-                  ? UploadFingerprints()
-                  : CheckAgain(
-                      onChange: (value) {
-                        isAllowed.value = value;
-                      },
-                    ),
-            ),
-          )
-        ],
-      ),
+    return Column(
+      children: [
+        Expanded(
+          child: isAllowed.value
+              ? UploadFingerprints()
+              : CheckAgain(
+                  onChange: (value) {
+                    isAllowed.value = value;
+                  },
+                ),
+        )
+      ],
     );
   }
 }

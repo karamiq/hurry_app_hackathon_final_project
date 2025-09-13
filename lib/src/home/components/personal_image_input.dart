@@ -91,15 +91,17 @@ class _PersonalImageInputWidgetState extends State<_PersonalImageInputWidget> {
           width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderSize.smallRadius,
-            color: colorScheme.primaryContainer.withAlpha(100),
+            color:
+                hasError ? colorScheme.error.withOpacity(.04) : colorScheme.primaryContainer.withAlpha(100),
             border: DashedBorder.symmetric(
               dashLength: 10,
               strokeCap: StrokeCap.butt,
               horizontal: BorderSide(
-                color: context.theme.colorScheme.primary,
+                color: hasError ? colorScheme.error : context.theme.colorScheme.primary,
                 width: 2,
               ),
-              vertical: BorderSide(color: context.theme.colorScheme.primary, width: 1.4),
+              vertical: BorderSide(
+                  color: hasError ? colorScheme.error : context.theme.colorScheme.primary, width: 1.4),
             ),
           ),
           child: _isLoading
@@ -123,14 +125,14 @@ class _PersonalImageInputWidgetState extends State<_PersonalImageInputWidget> {
                           width: 40,
                         ),
                         Text(
-                          'Upload the fingerprint image',
+                          context.l10n.uploadFingerprintImage,
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.secondary,
                           ),
                         ),
                         SizedBox(height: Insets.small),
                         Text(
-                          'Browse',
+                          context.l10n.browse,
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.primary,
                           ),
@@ -176,9 +178,9 @@ class _PersonalImageInputWidgetState extends State<_PersonalImageInputWidget> {
                 side: BorderSide(color: colorScheme.outline, width: 2),
                 shape: RoundedRectangleBorder(borderRadius: BorderSize.smallRadius),
               ),
-              child: const Text(
-                'Select from Gallery',
-                style: TextStyle(
+              child: Text(
+                context.l10n.selectFromGallery,
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),

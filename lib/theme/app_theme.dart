@@ -80,6 +80,7 @@ class AppTheme {
   ColorScheme _buildColorScheme(Brightness brightness) {
     final colorScheme = ColorScheme.fromSeed(
       seedColor: const Color.fromARGB(255, 17, 61, 128),
+      primary: const Color.fromARGB(255, 17, 61, 128),
       brightness: brightness,
     );
 

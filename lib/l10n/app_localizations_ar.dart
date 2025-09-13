@@ -9,7 +9,16 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get appName => 'اسم التطبيق';
+  String get uploadFingerprintImage => 'ارفع صورة البصمة';
+
+  @override
+  String get browse => 'تصفح';
+
+  @override
+  String get selectFromGallery => 'اختر من المعرض';
+
+  @override
+  String get appName => 'BioVerify';
 
   @override
   String get cancel => 'إلغاء';
@@ -136,4 +145,75 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get welcomeAgain => 'مرحباً بك مرة أخرى';
+
+  @override
+  String get or => 'أو';
+
+  @override
+  String get connectToWirelessScanner => 'اتصل بجهاز الماسح الضوئي اللاسلكي';
+
+  @override
+  String get ifi => 'ادب';
+
+  @override
+  String get theInternationalFingerprintRecognization =>
+      'التعرف الدولي على البصمات';
+
+  @override
+  String get connect => 'اتصل';
+
+  @override
+  String get upload => 'رفع';
+
+  @override
+  String get fingerprintWasUploadedSuccessfully => 'تم رفع بصمة الإصبع بنجاح';
+
+  @override
+  String get selectAnImageOfAFingerprint => 'يرجى اختيار صورة لبصمة الإصبع';
+
+  @override
+  String get uploadFingerprint => 'رفع بصمة الإصبع';
+
+  @override
+  String get matchFingerprint => 'مطابقة بصمة الإصبع';
+
+  @override
+  String get role => 'الدور';
+
+  @override
+  String get gym => 'الألعاب الرياضية';
+
+  @override
+  String get bank => 'بنك';
+
+  @override
+  String get verificationSuccessful => 'تم التحقق بنجاح';
+
+  @override
+  String get verificationFailed => 'فشل التحقق';
+
+  @override
+  String get matchedId => 'المعرف المطابق';
+
+  @override
+  String get confidenceScore => 'درجة الثقة';
+
+  @override
+  String get verificationTime => 'وقت التحقق';
+
+  @override
+  String get complete => 'إكمال';
+
+  @override
+  String get notAvailable => 'غير متوفر';
+
+  @override
+  String get recognitionFailed => 'فشل التعرف';
+
+  @override
+  String get unrecognizedPersonal => 'شخص غير معترف به';
+
+  @override
+  String get authorizationMessage =>
+      'يُسمح للأشخاص المخولين فقط بتقديم بصمات الأصابع تأكد من أنك مالك الجهاز';
 }
